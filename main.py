@@ -108,6 +108,7 @@ async def commands(ctx):
   embed=discord.Embed(title="Help for the Carpet Mod without /player Help Bot", description="Welcome to the help! Please take a look at the command below and use what you need!", color=0xff0000)
   embed.set_author(name="DillonB07")
   embed.add_field(name="?scicraft", value="Sends a link to the Scicraft Discord", inline=False)
+  embed.add_field(name="?aternos", value="Sends a link to Aternos website.")
   await ctx.send(embed=embed)
 
 @client.command()
@@ -134,7 +135,13 @@ async def scicraft(ctx):
   embed=discord.Embed(title="Scicraft", color=0xff0000)
   embed.set_author(name=ctx.message.author) 
   embed.add_field(name="Discord:", value="https://discord.gg/scicraft", inline=False)
+  await ctx.send(embed=embed) 
 
+@client.command()
+async def aternos(ctx):
+  embed=discord.Embed(title="Aternos", color=0xff0000)
+  embed.set_author(name=ctx.message.author) 
+  embed.add_field(name="Aternos:", value="Aternos free server hosting. https://aternos.org", inline=False)
   await ctx.send(embed=embed) 
 
 client.loop.create_task(ch_pr())
