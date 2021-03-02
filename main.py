@@ -156,6 +156,7 @@ async def commands(ctx):
   embed.add_field(name="?carpet", value="Sends a link for the Official Carpet Mod.", inline=False)
   embed.add_field(name="?invite", value="Sends an invite link for this server.", inline=False)
   embed.add_field(name="?suggest", value="Suggest something for the mod. Not the server the mod. If it a good suggestion we will try and add it.", inline=False)
+  embed.add_field(name="?bot", value="Sends the bot invite link.", inline=False)
   await ctx.send(embed=embed)
 
 @client.command()    #Provides information on the Official Carpet Mod
@@ -187,6 +188,10 @@ async def suggest(ctx, *, suggestion):
   for channel in guild.channels:
       if channel.id == 816304514301689856:
           await channel.send(embed = embed)
+
+@client.command()
+async def bot(ctx):
+  await ctx.send("https://discord.com/api/oauth2/authorize?client_id=815902015589711934&permissions=272723008&scope=bot")
 
 #Status changing 
 client.loop.create_task(ch_pr())
