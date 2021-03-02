@@ -146,7 +146,7 @@ async def download(ctx):
   embed.add_field(name="GitHub: ", value="Download Source Code on GitHub https://github.com/MineAndDine96/fabric-carpet-no-player/tree/main", inline=False)
   await ctx.send(embed=embed) 
 
-@client.command()   #Sens the commands of the bot
+@client.command()   #Sends the commands of the bot
 async def commands(ctx):
   embed=discord.Embed(title="Help for the Carpet Mod without /player Help Bot", description="Welcome to the help! Please take a look at the command below and use what you need!", color=0xff0000)
   embed.set_author(name="DillonB07")
@@ -155,9 +155,10 @@ async def commands(ctx):
   embed.add_field(name="?download", value="Provides a link to download the Carpet Mod without /player.", inline=False)
   embed.add_field(name="?carpet", value="Sends a link for the Official Carpet Mod.", inline=False)
   embed.add_field(name="?invite", value="Sends an invite link for this server.", inline=False)
+  embed.add_field(name="?suggest", value="Suggest something for the mod. Not the server the mod. If it a good suggestion we will try and add it.", inline=False)
   await ctx.send(embed=embed)
 
-@client.command(). # Provides information on the Official Carpet Mod
+@client.command()    #Provides information on the Official Carpet Mod
 async def carpet(ctx):
   embed=discord.Embed(title="Official Carpet Mod", color=0xff0000)
   embed.set_author(name=ctx.message.author) 
@@ -173,6 +174,19 @@ async def invite(ctx):
   embed.set_author(name=ctx.message.author)
   embed.add_field(name="Link", value="https://discord.gg/N6RQe76KDw", inline=False)
   await ctx.send(embed=embed)
+
+@client.command()
+async def suggest(ctx, *, suggestion):
+  await ctx.send("Your suggestion has been sent to the suggestion channel!")
+  embed = discord.Embed(title = "New Suggestions",color=random.randint(0, 0xFFFFFF))
+  embed.add_field(name = "Author:", value = f"`{ctx.author.name}`")
+  embed.add_field(name = "Server:", value = f"`{ctx.guild.name}`")
+  embed.add_field(name = "Suggestion: ", value = f"`{suggestion}`")
+  guild = client.get_guild(814919704274665523)
+
+  for channel in guild.channels:
+      if channel.id == 816304514301689856:
+          await channel.send(embed = embed)
 
 #Status changing 
 client.loop.create_task(ch_pr())
