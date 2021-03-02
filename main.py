@@ -132,9 +132,9 @@ async def warn(ctx,user:discord.User,*reason:str):
 @client.command()
 async def scicraft(ctx):
   embed=discord.Embed(title="Scicraft", color=0xff0000)
-  embed.set_author(name="DillonB07")
+  embed.set_author(name=ctx.message.author) 
   embed.add_field(name="Discord:", value="https://discord.gg/scicraft", inline=False)
-  embed.add_field(name="Website:", value="https://scicraft.org", inline=False)
+
   await ctx.send(embed=embed) 
 
 client.loop.create_task(ch_pr())
