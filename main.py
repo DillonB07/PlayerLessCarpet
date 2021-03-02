@@ -122,20 +122,61 @@ async def warn(ctx,user:discord.User,*reason:str):
   with open('reports.json','w+') as f:
     json.dump(report,f)
 
-@client.command()
+@client.command()   #provides a link to SciCraft-Discord
 async def scicraft(ctx):
   embed=discord.Embed(title="Scicraft", color=0xff0000)
   embed.set_author(name=ctx.message.author) 
   embed.add_field(name="Discord:", value="https://discord.gg/scicraft", inline=False)
   await ctx.send(embed=embed) 
 
-@client.command()
+@client.command()   #provides a Link to Aternos.org
 async def aternos(ctx):
   embed=discord.Embed(color=0xff0000)
   embed.set_author(name=ctx.message.author) 
   embed.add_field(name="Aternos:", value="Aternos free server hosting. https://aternos.org", inline=False)
   await ctx.send(embed=embed) 
 
+@client.command()   #Provides Download links
+async def download(ctx):
+  embed=discord.Embed(title="Download Carpet mod without /player",color=0xff0000)
+  embed.set_author(name=ctx.message.author) 
+
+  embed.add_field(name="Curseforge: ", value="Download on Curseforge https://www.curseforge.com/minecraft/mc-mods/carpet-without-player", inline=False)
+
+  embed.add_field(name="GitHub: ", value="Download Source Code on GitHub https://github.com/MineAndDine96/fabric-carpet-no-player/tree/main", inline=False)
+  await ctx.send(embed=embed) 
+
+@client.command()   #Sens the commands of the bot
+async def commands(ctx):
+  embed=discord.Embed(title="Help for the Carpet Mod without /player Help Bot", description="Welcome to the help! Please take a look at the command below and use what you need!", color=0xff0000)
+  embed.set_author(name="DillonB07")
+  embed.add_field(name="?scicraft", value="Sends a link to the Scicraft Discord.", inline=False)
+  embed.add_field(name="?aternos", value="Sends a link to Aternos website.", inline=False)
+  embed.add_field(name="?download", value="Provides a link to download the Carpet Mod without /player.", inline=False)
+  embed.add_field(name="?carpet", value="Sends a link for the Official Carpet Mod.", inline=False)
+  embed.add_field(name="?invite", value="Sends an invite link for this server.", inline=False)
+  await ctx.send(embed=embed)
+
+@client.command(). # Provides information on the Official Carpet Mod
+async def carpet(ctx):
+  embed=discord.Embed(title="Official Carpet Mod", color=0xff0000)
+  embed.set_author(name=ctx.message.author) 
+  embed.add_field(name="gnembon on CurseForge:", value="https://www.curseforge.com/members/gnembon/projects", inline=False)
+  embed.add_field(name="gnembon on YouTube:", value="https://www.youtube.com/c/gnembon/", inline=False)
+  embed.add_field(name="Carpet Mod on CurseForge", value="https://www.curseforge.com/minecraft/mc-mods/carpet", inline=False)
+  embed.add_field(name="Carpet Mod on GitHub", value="https://github.com/gnembon/carpetmod", inline=False)
+  await ctx.send(embed=embed)
+
+@client.command()   #provides an invite link to Discord Server
+async def invite(ctx):
+  embed=discord.Embed(title="Invite People to this Discord Server",color=0xff0000)
+  embed.set_author(name=ctx.message.author)
+  embed.add_field(name="Link", value="https://discord.gg/N6RQe76KDw", inline=False)
+  await ctx.send(embed=embed)
+
+#Status changing 
 client.loop.create_task(ch_pr())
+#Keep bot on 24/7
 keep_alive()
+#Connect to Discord
 client.run(os.getenv("TOKEN"))
