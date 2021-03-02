@@ -104,14 +104,6 @@ async def unmute(ctx, member: discord.Member = None):
       await ctx.send("The user has been unmuted")
 
 @client.command()
-async def commands(ctx):
-  embed=discord.Embed(title="Help for the Carpet Mod without /player Help Bot", description="Welcome to the help! Please take a look at the command below and use what you need!", color=0xff0000)
-  embed.set_author(name="DillonB07")
-  embed.add_field(name="?scicraft", value="Sends a link to the Scicraft Discord", inline=False)
-  embed.add_field(name="?aternos", value="Sends a link to Aternos website.")
-  await ctx.send(embed=embed)
-
-@client.command()
 @has_permissions(manage_roles=True, ban_members=True)
 async def warn(ctx,user:discord.User,*reason:str):
   if not reason:
@@ -139,7 +131,7 @@ async def scicraft(ctx):
 
 @client.command()
 async def aternos(ctx):
-  embed=discord.Embed(title="Aternos", color=0xff0000)
+  embed=discord.Embed(color=0xff0000)
   embed.set_author(name=ctx.message.author) 
   embed.add_field(name="Aternos:", value="Aternos free server hosting. https://aternos.org", inline=False)
   await ctx.send(embed=embed) 
