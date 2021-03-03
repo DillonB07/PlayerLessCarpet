@@ -157,6 +157,7 @@ async def commands(ctx):
   embed.add_field(name="?invite", value="Sends an invite link for this server.", inline=False)
   embed.add_field(name="?suggest", value="Suggest something for the mod. Not the server the mod. If it a good suggestion we will try and add it.", inline=False)
   embed.add_field(name="?bot", value="Sends the bot invite link.", inline=False)
+  embed.add_field(name="?scripts", value="Sends information on setting up Scarpet scripts.", inline=False)
   await ctx.send(embed=embed)
 
 @client.command()    #Provides information on the Official Carpet Mod
@@ -171,10 +172,18 @@ async def carpet(ctx):
 
 @client.command()   #provides an invite link to Discord Server
 async def invite(ctx):
-  embed=discord.Embed(title="Invite People to this Discord Server",color=0xff0000)
+  embed=discord.Embed(title="Invite People to this Discord Server", color=0xff0000)
   embed.set_author(name=ctx.message.author)
   embed.add_field(name="Link", value="https://discord.gg/N6RQe76KDw", inline=False)
   await ctx.send(embed=embed)
+  
+@client.command()
+async def scripts(ctx):
+  embed=discord.Embed(title="Installing Scarpet Scripts", color=0xff0000)
+  embed.set_author(name=ctx.message.author)
+  embed.add_field(name="Setup", value="First, you need to create a scripts folder. This can go inside the world folder or inside your carpet config folder(inside your .minecraft folder). Next, you put the .sc file into your folder and run the script ingame with /script. You may need to reload the world first with /reload or relog.", inline=False)
+  embed.add_field(name="Getting Scripts", value="To use a script with Carpet, you need the scarpet apps. These can be found here: https://github.com/gnembon/scarpet. Download the script you want(You may need to copy and paste it) and put it in your scripts folder.", inline=False)
+  embed.add_field(name="Use it!", value="You've finished settin up your scripts. You can use them with /script. Remember to load them with /script load.", inline=False)
 
 @client.command()
 async def suggest(ctx, *, suggestion):
