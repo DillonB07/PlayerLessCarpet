@@ -126,7 +126,13 @@ async def warn(ctx,user:discord.User,*reason:str):
 async def scicraft(ctx):
   embed=discord.Embed(title="Scicraft", color=0xff0000)
   embed.set_author(name=ctx.message.author) 
+
   embed.add_field(name="Discord:", value="https://discord.gg/scicraft", inline=False)
+
+  embed.add_field(name="Reddit: ", value="https://www.reddit.com/r/SciCraft/", inline=False)
+
+  embed.add_field(name="Twitter: ", value="http://twitter.com/scicraft_", inline=False)
+
   await ctx.send(embed=embed) 
 
 @client.command()   #provides a Link to Aternos.org
@@ -150,7 +156,7 @@ async def download(ctx):
 async def commands(ctx):
   embed=discord.Embed(title="Help for the Carpet Mod without /player Help Bot", description="Welcome to the help! Please take a look at the command below and use what you need!", color=0xff0000)
   embed.set_author(name="DillonB07")
-  embed.add_field(name="?scicraft", value="Sends a link to the Scicraft Discord.", inline=False)
+  embed.add_field(name="?scicraft", value="Sends a link to the Scicraft Discord, Reddit and.", inline=False)
   embed.add_field(name="?aternos", value="Sends a link to Aternos website.", inline=False)
   embed.add_field(name="?download", value="Provides a link to download the Carpet Mod without /player.", inline=False)
   embed.add_field(name="?carpet", value="Sends a link for the Official Carpet Mod.", inline=False)
